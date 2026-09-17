@@ -1,0 +1,470 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% KHAI BÁO CÁC GÓI CẦN THIẾT
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[most]{tcolorbox} 
+
+% --- GÓI CĂN LỀ TRANG GIẤY ---
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+% --- GÓI VẼ HÌNH ĐỒ THỊ VÀ HÌNH HỌC ---
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ============================================================
+% BẮT ĐẦU NỘI DUNG TÀI LIỆU
+% ============================================================
+\begin{document}
+
+% ------------------------------------------------------------
+% TRANG BÌA (COVER PAGE)
+% ------------------------------------------------------------
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        {\large \textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}} \\
+        {\large \textbf{TRƯỜNG ĐẠI HỌC [ĐIỀN TÊN TRƯỜNG CỦA BẠN]}} \\
+        \vspace{0.5cm}
+        \rule{8cm}{1pt} \\ 
+        
+        \vspace{3.5cm}
+        {\Huge \textbf{TIỂU LUẬN MÔN TOÁN}} \\
+        \vspace{1.5cm}
+        {\LARGE \textbf{CHỦ ĐỀ: ỨNG DỤNG CỦA HÀM SỐ LƯỢNG GIÁC}} \\
+        \vspace{0.5cm}
+        {\LARGE \textbf{TRONG THỰC TIỄN VÀ KHOA HỌC}} \\
+        
+        \vspace{4cm}
+        \begin{flushright}
+            {\large
+            \textbf{Sinh viên thực hiện:} Đinh Thị Kim Anh \\
+            \vspace{0.2cm}
+            \textbf{Mã sinh viên:} 22S1010123 \\
+            \vspace{0.2cm}
+            \textbf{Lớp:} [Điền tên lớp] \\
+            \vspace{0.2cm}
+            \textbf{Giảng viên hướng dẫn:} [Điền tên GV] \\
+            }
+        \end{flushright}
+        
+        \vfill 
+        {\large \textbf{[Điền Tỉnh/Thành phố], Tháng 9 - 2026}}
+    \end{center}
+\end{titlepage}
+
+% ------------------------------------------------------------
+% MỤC LỤC TỰ ĐỘNG
+% ------------------------------------------------------------
+\newpage
+\tableofcontents 
+\newpage
+
+% ------------------------------------------------------------
+% LỜI MỞ ĐẦU
+% ------------------------------------------------------------
+\section*{Lời mở đầu}
+\addcontentsline{toc}{section}{Lời mở đầu} 
+
+\subsection*{1. Giới thiệu chung}
+Toán học không chỉ là những con số và ký hiệu nằm bất động trên những trang giấy trắng. Đằng sau những vỏ bọc trừu tượng ấy là ngôn ngữ mạnh mẽ nhất mà nhân loại từng có để giải mã vũ trụ. Trong số các nhánh của Toán học, Lượng giác (Trigonometry) vươn lên như một công cụ vĩ đại. Khởi nguồn từ việc đo đạc những thửa ruộng ven sông Nile thời cổ đại và quan sát bầu trời của các nhà thiên văn học Hy Lạp, lượng giác ngày nay đã thâm nhập vào mọi ngóc ngách của khoa học kỹ thuật, từ phân tích tín hiệu âm thanh, y sinh học cho đến điều hướng vệ tinh trong không gian.
+
+\subsection*{2. Lý do chọn đề tài}
+Trong môi trường học thuật và các kỳ thi, Lượng giác thường được tiếp cận dưới góc độ thuần túy đại số: biến đổi công thức, giải phương trình và tìm nghiệm. Cách tiếp cận này vô tình tạo ra một "bức tường vô hình", khiến nhiều học sinh, sinh viên mang trong mình câu hỏi đầy hoài nghi: \textit{"Học lượng giác để làm gì nếu không phải để đi thi?"}.
+
+Xuất phát từ trăn trở đó, tiểu luận \textbf{"Ứng dụng của hàm số lượng giác trong thực tiễn và khoa học"} được thực hiện nhằm đập tan định kiến về một môn Toán khô khan. Đề tài không tập trung vào việc giải những phương trình phức tạp, mà hướng tới việc trả lại cho lượng giác vẻ đẹp vốn có của nó: vẻ đẹp của sự tuần hoàn, nhịp điệu và sự cân bằng trong tự nhiên. Thông qua các mô hình thực tế như sự giao thoa của hợp âm, nhịp thở của đại dương hay thước đo vạn vật trong thiên văn học, tiểu luận hy vọng mang đến một lăng kính hoàn toàn mới, giúp người đọc vừa nắm vững lý thuyết nền tảng, vừa cảm nhận được "nhịp đập" của Toán học trong đời sống thực.
+
+\newpage
+% ------------------------------------------------------------
+% PHẦN 1
+% ------------------------------------------------------------
+\section{Phần 1: Các khái niệm cơ bản về Hàm số Lượng giác}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Nắm vững lý thuyết nền tảng:} Hiểu rõ định nghĩa và sự hình thành của các hàm số lượng giác cơ bản $y = \sin x$, $y = \cos x$, $y = \tan x$ và $y = \cot x$ từ đường tròn đơn vị.
+    \item \textbf{Hiểu rõ đặc trưng đồ thị:} Nhận biết tính tuần hoàn và hình dáng "hình sin" đặc trưng của đồ thị.
+    \item \textbf{Khai thác các tính chất quan trọng:} Xác định chính xác chu kỳ, tập giá trị và các điểm cực trị (Max/Min) làm cơ sở toán học vững chắc để mô hình hóa các hiện tượng thực tế.
+\end{itemize}
+\vspace{0.5cm}
+
+Trong giải tích, nếu đa thức (như hàm bậc 2, bậc 4) thường được dùng để mô tả sự tăng trưởng hay quỹ đạo ném, thì hàm số lượng giác lại là công cụ tối ưu và duy nhất để mô phỏng sự tuần hoàn. Bất chấp hệ số biên độ hay tần số thay đổi ra sao, đồ thị của chúng luôn giữ vững những cấu trúc nhịp nhàng, lặp đi lặp lại một cách hoàn hảo qua thời gian.
+
+\subsection{Định nghĩa và Dạng tổng quát}
+Hàm số lượng giác biểu diễn mối quan hệ giữa một góc (đo bằng radian) và tọa độ của một điểm di chuyển trên đường tròn lượng giác đơn vị. Trong các ứng dụng thực tế (như sóng âm, dao động cơ điều hòa), hàm lượng giác thường xuất hiện dưới dạng tổng quát:
+\[ y = A \sin(\omega x + \varphi) + B \quad (A \neq 0, \omega \neq 0) \]
+
+\textbf{Ví dụ 1 (Ví dụ về hàm lượng giác):}
+Các hàm số sau đây là hàm lượng giác:
+\begin{itemize}
+    \item $y = 3\sin(2x + \pi)$ (Mô tả sóng với biên độ bằng $3$).
+    \item $y = 5\cos^2 x - 1$.
+\end{itemize}
+
+\textbf{Ví dụ 2 (Ví dụ KHÔNG phải hàm lượng giác thuần túy):}
+\begin{itemize}
+    \item $y = x^2 + \sin x$ (Đây là hàm hỗn hợp giữa đa thức và lượng giác).
+    \item $y = \sin(x^2 + 1)$ (Hàm hợp có chứa biến bậc hai bên trong).
+\end{itemize}
+
+\subsection{Tập xác định và Tính tuần hoàn}
+Tính chất hình học nổi bật nhất của hàm lượng giác là sự lặp lại (tuần hoàn):
+\begin{itemize}
+    \item \textbf{Hàm $y = \sin x$ và $y = \cos x$:} Tập xác định $D = \mathbb{R}$. Đây là các hàm tuần hoàn với chu kỳ cơ sở $T = 2\pi$. Nghĩa là cứ sau một khoảng $2\pi$, đồ thị lại lặp lại hình dáng ban đầu: $\sin(x + 2\pi) = \sin x$.
+    \item \textbf{Hàm $y = \tan x$:} Tập xác định $D = \mathbb{R} \setminus \left\lbrace \frac{\pi}{2} + k\pi \mid k \in \mathbb{Z} \right\rbrace$, chu kỳ lặp lại ngắn hơn, $T = \pi$.
+\end{itemize}
+
+\subsection{Cực trị và Sự biến thiên}
+Không giống như hàm đa thức có thể tiến tới $+\infty$ hoặc $-\infty$, hàm $y = \sin x$ và $y = \cos x$ luôn bị giới hạn ngặt nghèo trong một khoảng cố định (tập giá trị $[-1, 1]$):
+\[ -1 \leq \sin x \leq 1 \quad \text{và} \quad -1 \leq \cos x \leq 1 \]
+
+\begin{itemize}
+    \item \textbf{Điểm cực đại (Đỉnh sóng):} Hàm $y = \sin x$ đạt cực đại bằng $1$ tại các điểm $x = \frac{\pi}{2} + k2\pi$ $(k \in \mathbb{Z})$.
+    \item \textbf{Điểm cực tiểu (Đáy sóng):} Hàm $y = \sin x$ đạt cực tiểu bằng $-1$ tại các điểm $x = -\frac{\pi}{2} + k2\pi$ $(k \in \mathbb{Z})$.
+\end{itemize}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Mẹo nhớ nhanh đồ thị cơ bản}]
+\begin{itemize}
+    \item \textbf{Biên độ (Max/Min):} Đồ thị $\sin$ và $\cos$ cơ bản luôn dao động như một "làn sóng" bị nhốt giữa hai đường thẳng song song $y = 1$ và $y = -1$.
+    \item \textbf{Điểm xuất phát:} Hàm $\sin x$ luôn đi qua gốc tọa độ $(0;0)$ (bắt đầu từ mức cân bằng), trong khi hàm $\cos x$ xuất phát từ "đỉnh sóng" $(0;1)$.
+\end{itemize}
+\end{tcolorbox}
+\end{center}
+
+\newpage
+% ------------------------------------------------------------
+% PHẦN 2
+% ------------------------------------------------------------
+\section{Phần 2: Ứng dụng của lượng giác trong Âm thanh và Âm nhạc}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Hiểu bản chất sóng âm:} Chuyển đổi hiện tượng vật lý (âm thanh) thành mô hình toán học thông qua đồ thị hình sin.
+    \item \textbf{Phân tích tham số:} Giải thích được ý nghĩa thực tế của biên độ ($A$) và tần số góc ($\omega$) đối với âm lượng và cao độ của nốt nhạc.
+    \item \textbf{Khám phá sự giao thoa:} Sử dụng phép biến đổi lượng giác (tổng thành tích) để giải thích cơ chế tạo ra hợp âm êm tai (consonance) trong âm nhạc.
+\end{itemize}
+\vspace{0.5cm}
+
+Âm nhạc, ở góc độ cốt lõi nhất, chính là toán học được cảm nhận qua đôi tai. Hơn hai ngàn năm trước, nhà toán học Pythagoras đã phát hiện ra rằng những âm thanh êm ái nhất đều tuân theo các tỷ lệ toán học nguyên giản. Khi bạn gảy một dây đàn guitar hay lướt trên phím piano, không khí xung quanh sẽ dao động. Những dao động này truyền đến màng nhĩ dưới dạng các đợt nén và dãn liên tục, vẽ lên không gian những đường cong lượng giác hoàn mỹ.
+
+\subsection{Sóng âm và Phương trình dao động}
+Một âm thanh đơn thuần nhất (âm thuần, ví dụ như tiếng phát ra từ âm thoa) tạo ra một sóng âm có thể được biểu diễn bằng phương trình lượng giác theo thời gian $t$:
+\[ y(t) = A \sin(\omega t + \varphi) \]
+Trong đó, mỗi đại lượng toán học đều cất lên một tiếng nói vật lý riêng biệt:
+\begin{itemize}
+    \item \textbf{$A$ (Biên độ):} Biên độ càng lớn, đồ thị càng dao động mạnh theo trục tung. Trong thực tế, điều này tương ứng với \textbf{độ to (âm lượng)} của âm thanh.
+    \item \textbf{$\omega$ (Tần số góc):} Đại lượng này liên hệ với tần số $f$ (số dao động trong một giây, đơn vị Hertz - Hz) qua công thức $\omega = 2\pi f$. Tần số càng lớn, đồ thị càng bị "nén" lại theo trục hoành, âm phát ra sẽ có \textbf{cao độ càng cao (âm bổng)}. Ngược lại, tần số nhỏ tạo ra âm trầm.
+\end{itemize}
+
+\textbf{Ví dụ thực tế:} Một nốt La chuẩn (A4) - tiêu chuẩn quốc tế dùng để lên dây cho mọi nhạc cụ - có tần số chính xác là $f = 440 \text{ Hz}$. Phương trình dao động của nốt nhạc này là $y(t) = A \sin(880\pi t)$. Dưới đây là hình ảnh mô phỏng một sóng âm thuần túy:
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=12cm, height=4.5cm,
+        axis lines=middle,
+        xlabel={Thời gian $t$},
+        ylabel={Biên độ $y(t)$},
+        ymin=-1.5, ymax=1.5,
+        xmin=0, xmax=13,
+        xtick=\empty, ytick={-1, 1},
+        grid=both,
+        grid style={line width=.1pt, draw=gray!30},
+        thick,
+        title={\textbf{Đồ thị mô phỏng một nốt nhạc đơn (Âm thuần)}}
+    ]
+    \addplot[domain=0:4*pi, samples=150, color=cyan!70!blue, very thick] {sin(deg(x))};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Toán học của Hợp âm: Bản giao hưởng của sự Giao thoa}
+Tại sao khi ta đánh cùng lúc nhiều nốt nhạc, có những tổ hợp nghe rất êm tai (hợp âm thuận), nhưng có tổ hợp lại nghe chói gắt (hợp âm nghịch)? Bí mật nằm ở \textbf{phép cộng lượng giác}.
+
+Theo nguyên lý chồng chất sóng, khi hai nốt nhạc vang lên cùng lúc, phương trình sóng tổng hợp chính là tổng của hai hàm sin. Áp dụng công thức biến đổi tổng thành tích:
+\[ \sin \alpha + \sin \beta = 2 \sin\left(\frac{\alpha + \beta}{2}\right) \cos\left(\frac{\alpha - \beta}{2}\right) \]
+
+Tính chất của hàm số tổng hợp này phụ thuộc hoàn toàn vào tỷ lệ giữa hai tần số $f_1$ và $f_2$:
+\begin{itemize}
+    \item \textbf{Hợp âm thuận (Consonance):} Xảy ra khi tỷ số $\frac{f_1}{f_2}$ là những phân số đơn giản. Ví dụ điển hình nhất là Quãng 5 đúng (Perfect Fifth) với tỷ lệ tần số $3:2$. Khi đó, sóng tổng hợp tạo ra một chu kỳ lặp lại đều đặn, nhịp nhàng, mang lại cảm giác hùng tráng và êm dịu.
+    \item \textbf{Hợp âm nghịch (Dissonance):} Xảy ra khi tỷ lệ tần số phức tạp (như $45:32$). Đồ thị hàm tổng hợp lúc này trở nên hỗn loạn, biên độ dao động bất quy tắc tạo ra cảm giác căng thẳng.
+\end{itemize}
+
+\textbf{Minh họa sự giao thoa tạo nên Hợp âm thuận (Tỷ lệ 3:2):}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=6cm,
+        axis lines=middle,
+        xlabel={Thời gian $t$},
+        ylabel={Biên độ},
+        ymin=-2.5, ymax=2.5,
+        xmin=0, xmax=13,
+        xtick=\empty, ytick=\empty,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!20},
+        thick,
+        title={\textbf{Sự hòa quyện của hai nốt nhạc (Quãng 5 đúng)}},
+        legend style={at={(0.5,-0.15)}, anchor=north, legend columns=-1, draw=none}
+    ]
+    % Nốt thứ nhất (tần số 2x)
+    \addplot[domain=0:4*pi, samples=200, color=red!60!white, dashed, thick] {sin(deg(2*x))};
+    % Nốt thứ hai (tần số 3x)
+    \addplot[domain=0:4*pi, samples=200, color=green!60!black, dashed, thick] {sin(deg(3*x))};
+    % Sóng tổng hợp
+    \addplot[domain=0:4*pi, samples=200, color=blue, very thick] {sin(deg(2*x)) + sin(deg(3*x))};
+    
+    \legend{Nốt gốc, Nốt quãng 5, Sóng tổng hợp (Hợp âm)}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Góc nhìn sâu sắc}]
+Nhà bác học, triết học lỗi lạc Gottfried Leibniz từng nói: \textit{"Âm nhạc là một bài toán số học ẩn giấu của tâm hồn, nơi nó tính toán mà không hề hay biết"}. Việc học lượng giác giúp chúng ta không chỉ "nghe" mà còn "nhìn thấy" và "tính toán" được vẻ đẹp của âm nhạc thông qua sự giao thoa của các đồ thị hàm số.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+% ------------------------------------------------------------
+% PHẦN 3
+% ------------------------------------------------------------
+\section{Phần 3: Nhịp sinh học và Thủy triều - Lời thì thầm của Vũ trụ}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Mở rộng nhãn quan vĩ mô:} Sử dụng hàm cosin để tính toán thủy triều, phân tích tác động từ các pha của Mặt Trăng đến biên độ sóng.
+    \item \textbf{Mô hình hóa vi mô:} Lập phương trình lượng giác biểu diễn sự giao thoa của các hormone trong "đồng hồ sinh học" và nhịp thở của con người.
+    \item \textbf{Kết nối Toán học \& Thực tiễn:} Ứng dụng trực tiếp giải các bài toán hàng hải, y học và tối ưu hóa hiệu suất cơ thể.
+\end{itemize}
+\vspace{0.5cm}
+
+Vũ trụ không vận hành một cách hỗn loạn, mà giống như một cỗ máy khổng lồ tích hợp vô số bánh răng nhịp nhàng. Từ chuyển động của các thiên hà, sự luân phiên bốn mùa, cho đến nhịp đập nơi lồng ngực bạn — tất cả đều mang tính tuần hoàn. Sự kỳ diệu nằm ở chỗ: từ một vệ tinh cách ta hàng trăm ngàn kilomet (Mặt Trăng) cho đến từng phân tử hóa học trong não bộ, tất cả đều đang "khiêu vũ" theo cùng một điệu nhạc mang tên: Hàm số Lượng giác.
+
+\subsection{Hơi thở của Đại dương: Toán học đằng sau Thủy triều}
+Hàng ngàn năm qua, các thủy thủ đã biết nhìn lên Mặt Trăng để đoán con nước. Hiện tượng thủy triều chính là kết quả của lực hấp dẫn giữa Trái Đất, Mặt Trăng và Mặt Trời. Tùy vào vị trí tương đối của 3 thiên thể này, \textbf{biên độ dao động ($A$)} của hàm số lượng giác sẽ thay đổi:
+\begin{itemize}
+    \item \textbf{Triều cường (Spring Tides):} Xảy ra vào ngày trăng tròn hoặc trăng non. Lúc này Mặt Trăng và Mặt Trời thẳng hàng, lực hấp dẫn cộng gộp khiến biên độ sóng đạt mức cực đại.
+    \item \textbf{Triều kém (Neap Tides):} Xảy ra vào ngày trăng khuyết. Trái Đất, Mặt Trăng, Mặt Trời tạo thành góc vuông. Lực kéo triệt tiêu lẫn nhau khiến biên độ dao động đạt mức cực tiểu.
+\end{itemize}
+
+\begin{tcolorbox}[colback=cyan!5!white,colframe=cyan!80!black,title=\textbf{Ví dụ: Kỷ lục tại Vịnh Fundy}]
+Nơi thể hiện sức mạnh lượng giác khủng khiếp nhất trên Trái Đất là Vịnh Fundy (Canada). Nhờ cấu trúc địa hình dạng phễu cộng hưởng với nhịp điệu của Mặt Trăng, mực nước ở đây dao động với \textbf{biên độ lên tới 16 mét} (tương đương tòa nhà 5 tầng). Lượng nước chảy vào và rút ra khỏi vịnh trong một chu kỳ 12 giờ bằng tổng lưu lượng của tất cả các con sông trên thế giới cộng lại!
+\end{tcolorbox}
+
+\textbf{Bài toán Vận tải biển:} 
+Xét mô hình bán nhật triều tại một cảng biển nước sâu. Mực nước trung bình là $2$ mét, biên độ dao động là $1.5$ mét. Chu kỳ $12$ giờ tương ứng tần số góc $\omega = \frac{\pi}{6}$. Chọn $t = 0$ là lúc triều cường, phương trình mực nước $h(t)$ (mét) theo thời gian $t$ (giờ) là:
+\[ h(t) = 1.5 \cos\left(\frac{\pi}{6}t\right) + 2 \]
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=6.5cm,
+        axis lines=middle,
+        xlabel={\textbf{Thời gian $t$ (giờ)}},
+        ylabel={\textbf{Mực nước $h(t)$ (m)}},
+        ymin=0, ymax=4.5, xmin=0, xmax=25,
+        xtick={0, 3, 6, 9, 12, 15, 18, 21, 24},
+        ytick={0, 1, 2, 3, 4},
+        grid=both, grid style={line width=.1pt, draw=gray!30},
+        thick,
+        title={\textbf{Đồ thị mực nước Thủy triều (Được tô màu mô phỏng đại dương)}},
+        legend style={at={(0.95,0.95)}, anchor=north east}
+    ]
+    % Vẽ và tô màu nước biển (dùng fill)
+    \addplot[domain=0:24, samples=200, color=cyan!70!blue, very thick, fill=cyan!10] {1.5 * cos(30*x) + 2} \closedcycle;
+    \addlegendentry{Mực nước $h(t)$}
+    
+    % Đường giới hạn an toàn cho tàu
+    \addplot[domain=0:24, dashed, color=red, thick] {3.2};
+    \addlegendentry{Mức an toàn tối thiểu (3.2m)}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+Nếu một con tàu siêu trọng yêu cầu mực nước tối thiểu $\mathbf{3.2}$ \textbf{mét} để không bị mắc cạn, phần mềm dẫn đường sẽ giải bất phương trình $\cos\left(\frac{\pi}{6}t\right) \geq 0.8$. Kết quả toán học sẽ chỉ ra khung giờ vàng từ \textbf{10h45 đến 13h15} là thời điểm duy nhất tàu được phép tiến vào cảng.
+
+\subsection{Hệ sinh thái Vi mô: Đồng hồ Sinh học \& Nhịp thở}
+Quay trở lại với cơ thể con người. Mọi sinh hoạt của chúng ta bị chi phối bởi "Nhịp sinh học" - một hệ thống phương trình dao động điều hòa được lập trình sẵn trong mã ADN. Sự buồn ngủ hay tỉnh táo thực chất là sự giao thoa của hai hàm số lượng giác ngược pha (lệch nhau $\pi$ radian):
+\begin{align*}
+    \text{Cortisol (Đánh thức): } \quad C(t) &= 5 + 5\cos\left(\frac{\pi}{12}(t - 8)\right) \quad (\text{Max lúc 8h sáng}) \\
+    \text{Melatonin (Gây ngủ): } \quad M(t) &= 5 + 5\cos\left(\frac{\pi}{12}(t - 24)\right) \quad (\text{Max lúc 24h đêm})
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=5.5cm,
+        axis lines=left,
+        xlabel={\textbf{Thời gian trong ngày (Giờ)}},
+        ylabel={\textbf{Nồng độ Hormone}},
+        ymin=0, ymax=12, xmin=0, xmax=24,
+        xtick={0, 4, 8, 12, 16, 20, 24},
+        grid=major, grid style={dashed, gray!50},
+        thick,
+        title={\textbf{Sự giao thoa của 2 hàm Lượng giác quy định Giấc ngủ}}
+    ]
+    % Đồ thị Cortisol (Đỏ) - lệch 8 tiếng
+    \addplot[domain=0:24, samples=150, color=red, very thick] {5 + 5 * cos(15*(x-8))};
+    % Đồ thị Melatonin (Xanh) - lệch 24 tiếng (cũng là 0 tiếng)
+    \addplot[domain=0:24, samples=150, color=blue, very thick, dashed] {5 + 5 * cos(15*x)};
+    
+    \node[red] at (axis cs: 10.5, 9.5) {Cortisol};
+    \node[blue] at (axis cs: 3.5, 9.5) {Melatonin};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!60!black,title=\textbf{Ứng dụng Y khoa: Đạo hàm Nhịp thở}]
+Một ví dụ vi mô tuyệt đẹp khác là \textbf{Chu kỳ Hô hấp}. Thể tích không khí trong phổi của một người trưởng thành khi nghỉ ngơi dao động theo chu kỳ khoảng 5 giây. Khí đi vào và đi ra tạo thành phương trình:
+\[ V(t) = 0.25 \sin\left(\frac{2\pi}{5} t - \frac{\pi}{2}\right) + 2.75 \quad (\text{lít}) \]
+Bằng cách lấy \textbf{đạo hàm bậc nhất $V'(t)$}, các bác sĩ có thể tính toán chính xác \textit{lưu lượng không khí luân chuyển lớn nhất} trong một giây, từ đó phát hiện sớm các bệnh lý về hen suyễn hoặc hẹp đường thở, cứu sống hàng triệu bệnh nhân mỗi năm.
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Triết lý của Lượng giác}]
+Toán học thường bị gán mác là khô khan và rập khuôn. Tuy nhiên, khi nhìn vào đồ thị sóng được đổ màu của đại dương hay phương trình nhịp thở của buồng phổi, ta thấy toán học thực chất đang đo lường "nhịp thở" của sự sống. Bằng cách thấu hiểu đồ thị $y = \sin x$, ta đã nắm trong tay chiếc chìa khóa vạn năng để giải mã quy luật của vũ trụ và thấu hiểu chính cơ thể mình.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+% ------------------------------------------------------------
+% PHẦN 4
+% ------------------------------------------------------------
+\section{Phần 4: Ứng dụng Lượng giác trong Đo đạc và Thiên văn}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Khái niệm Lưới đạc tam giác:} Ứng dụng Định lý Sin và Định lý Cosin để tính toán khoảng cách đến những điểm không thể chạm tới (đỉnh núi, bờ sông bên kia).
+    \item \textbf{Phân tích rủi ro:} Nhận diện được "bẫy nghiệm ngoại lai" trong phương trình lượng giác khi giải các bài toán thực địa.
+    \item \textbf{Mở rộng:} Hiểu được nguyên lý Thị sai (Parallax) mà các nhà thiên văn học dùng để đo khoảng cách đến các vì sao cách chúng ta hàng năm ánh sáng.
+\end{itemize}
+\vspace{0.5cm}
+
+Làm thế nào con người biết được đỉnh Everest cao 8.848 mét khi không ai có thể thả một sợi dây đo từ đỉnh xuống tận gốc núi? Làm sao nhân loại biết được khoảng cách đến ngôi sao gần nhất là 4.24 năm ánh sáng? Câu trả lời không nằm ở những chiếc thước khổng lồ, mà nằm ở sức mạnh của hình học và các hàm số lượng giác. Bằng cách quan sát các góc, con người đã dùng Toán học để "chạm" tới những nơi xa xôi nhất.
+
+\subsection{Lưới đạc tam giác: Thước đo của Trái đất}
+Nguyên lý cốt lõi của ngành trắc địa là \textbf{Lưới đạc tam giác} (Triangulation). Thay vì đo trực tiếp khoảng cách, các kỹ sư sẽ lập một "đường cơ sở" (baseline) có chiều dài xác định trên mặt đất. Từ hai đầu của đường cơ sở này, họ dùng giác kế quang học để đo góc nghiêng hướng về phía đỉnh núi. 
+
+Áp dụng \textbf{Định lý Sin} trong một tam giác bất kỳ, mối liên hệ giữa các cạnh ($a, b, c$) và các góc đối diện ($A, B, C$) là một hằng số:
+$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} $$
+
+\textbf{Minh họa bài toán Trắc địa:}
+\begin{center}
+\begin{tikzpicture}
+    % Tọa độ các điểm
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (6,0);
+    \coordinate (C) at (4,4);
+    \coordinate (H) at (4,0);
+
+    % Vẽ tam giác và đường cao
+    \draw[thick, blue] (A) -- (B) node[midway, below] {$c = 500$m (Đường cơ sở)};
+    \draw[thick] (B) -- (C) node[midway, right] {$a$};
+    \draw[thick] (A) -- (C) node[midway, above left] {$b$};
+    \draw[dashed, red, thick] (C) -- (H) node[midway, right] {$h$ (Chiều cao)};
+
+    % Ký hiệu đỉnh
+    \fill (A) circle (2pt) node[below left] {$A$};
+    \fill (B) circle (2pt) node[below right] {$B$};
+    \fill (C) circle (2pt) node[above] {$C$ (Đỉnh núi)};
+    \fill (H) circle (2pt) node[below] {$H$};
+
+    % Vẽ ký hiệu góc
+    \draw (1,0) arc (0:45:1) node[midway, right, xshift=2pt, yshift=4pt] {$\alpha = 45^\circ$};
+    \draw (5,0) arc (180:116:1) node[midway, left, xshift=-2pt, yshift=6pt] {$\beta = 64^\circ$};
+    
+    % Góc vuông
+    \draw (3.7,0) -- (3.7,0.3) -- (4,0.3);
+\end{tikzpicture}
+\end{center}
+
+Từ hình trên, ta dễ dàng tính được góc $C = 180^\circ - (45^\circ + 64^\circ) = 71^\circ$. Khi đã có đầy đủ thông tin, cạnh $b$ và chiều cao $h$ sẽ bị "khóa" bởi các phép tính lượng giác:
+$$ b = \frac{c \cdot \sin B}{\sin C} = \frac{500 \cdot \sin 64^\circ}{\sin 71^\circ} \approx 475.2 \text{ (m)} $$
+$$ h = b \cdot \sin A = 475.2 \cdot \sin 45^\circ \approx 336 \text{ (m)} $$
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=\textbf{Bẫy tư duy thực tế: Trường hợp mập mờ (Ambiguous Case)}]
+Trong đánh giá tự luận lượng giác, một sai lầm kinh điển hay gặp phải là khi bài toán cung cấp 2 cạnh và 1 góc \textbf{không xen giữa} (SSA). Khi giải phương trình $\sin X = k$ (với $0 < k < 1$), học sinh thường chỉ lấy nghiệm góc nhọn. Tuy nhiên, trên đường tròn lượng giác, $\sin X = \sin(180^\circ - X)$. Điều này dẫn đến thực tế là có thể tồn tại \textbf{hai tam giác hoàn toàn khác nhau} thỏa mãn cùng một dữ kiện đo đạc. Sự thiếu sót bước đánh giá góc tù này là một "cái bẫy" mất điểm phổ biến và có thể dẫn đến hậu quả nghiêm trọng khi xác định tọa độ trong thực tế.
+\end{tcolorbox}
+
+\subsection{Thị sai (Parallax): Khi Lượng giác đo vạn vật}
+Nếu đường cơ sở $c = 500$m là quá ngắn để đo khoảng cách đến các vì sao, các nhà thiên văn học đã lợi dụng chính quỹ đạo của Trái Đất quanh Mặt Trời làm một đường cơ sở khổng lồ (dài khoảng $300$ triệu km).
+
+Kỹ thuật này được gọi là \textbf{Thị sai sao}. Họ chụp ảnh một ngôi sao vào tháng 1, sau đó đợi 6 tháng sau (vào tháng 7) chụp lại ngôi sao đó khi Trái Đất đã bay sang nửa bên kia của quỹ đạo. Bằng cách đo góc dịch chuyển nhỏ bé (góc thị sai $p$) của ngôi sao so với phông nền vũ trụ tĩnh, khoảng cách $d$ được tính bằng một phương trình lượng giác tối giản:
+$$ d = \frac{r}{\tan p} \approx \frac{r}{p} $$
+(Do $p$ rất nhỏ nên $\tan p \approx p$ tính bằng radian).
+
+\textbf{Minh họa Hình học Vũ trụ:}
+\begin{center}
+\begin{tikzpicture}
+    % Quỹ đạo Trái đất
+    \draw[dashed, thick, gray] (0,0) ellipse (4cm and 1cm);
+    
+    % Mặt trời và Ngôi sao
+    \fill[orange] (0,0) circle (6pt) node[below=8pt, text=black] {Mặt Trời};
+    \fill[yellow!90!orange] (0,5) circle (4pt) node[above=4pt, text=black] {Ngôi sao ($S$)};
+    
+    % Vị trí Trái đất T1 và T7
+    \fill[blue] (-4,0) circle (4pt) node[left=4pt, text=black] {Trái Đất (Tháng 1)};
+    \fill[blue] (4,0) circle (4pt) node[right=4pt, text=black] {Trái Đất (Tháng 7)};
+    
+    % Các đường ngắm
+    \draw[thick, cyan] (-4,0) -- (0,5);
+    \draw[thick, cyan] (4,0) -- (0,5);
+    \draw[dashed, thick] (0,0) -- (0,5) node[midway, right] {$d$ (Khoảng cách)};
+    \draw[thick, red] (0,0) -- (4,0) node[midway, below] {$r = 1$ AU};
+    
+    % Góc thị sai p
+    \draw (0,4.2) arc (270:308.6:0.8) node[midway, below right, xshift=-2pt, yshift=2pt] {$p$};
+\end{tikzpicture}
+\end{center}
+
+Công thức này thanh lịch đến mức nó khai sinh ra một đơn vị đo lường vĩ đại trong thiên văn học: \textbf{Parsec} (Parallax second). Nếu góc $p = 1$ giây cung ($1/3600$ độ), thì khoảng cách $d$ đúng bằng $1$ Parsec (tương đương $3.26$ năm ánh sáng).
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Tổng kết Phần 4}]
+Hình học và Lượng giác chứng minh rằng giới hạn của loài người không nằm ở chiều dài của sải tay, mà nằm ở độ sắc bén của tư duy. Khởi nguồn từ việc đo đạc những thửa ruộng ven sông Nile thời cổ đại, trải qua hàng ngàn năm, những góc Sin, Cos đã vươn mình thành thước đo đưa con người chạm tới những dải ngân hà xa xôi nhất trong vũ trụ.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+% ------------------------------------------------------------
+% KẾT LUẬN
+% ------------------------------------------------------------
+\section*{Kết luận chung}
+\addcontentsline{toc}{section}{Kết luận chung} 
+
+Khép lại chuyến hành trình khám phá qua bốn phần của tiểu luận, chúng ta có thể tự tin khẳng định rằng: Hàm số lượng giác vĩ đại, lãng mạn và gần gũi hơn rất nhiều so với hình ảnh của những phương trình khô khan, rập khuôn trên những trang sách giáo khoa. Khởi nguồn từ một đường tròn đơn vị bé nhỏ với các trục tọa độ tĩnh lặng, các hàm số Sin, Cos đã thực sự "sống dậy" và vươn mình trở thành một thứ ngôn ngữ toán học cốt lõi để mô phỏng mọi sự tuần hoàn của tự nhiên.
+
+Nhìn lại bức tranh toàn cảnh, Lượng giác đã cấp cho chúng ta một lăng kính vạn hoa để giải mã thế giới. Chúng ta thấy Lượng giác ẩn mình trong \textbf{thế giới nghệ thuật}, nơi một nốt nhạc vang lên không chỉ là âm thanh đơn thuần, mà là sự giao thoa tuyệt mỹ của các đồ thị sóng. Nhờ có phương trình dao động, chúng ta không chỉ "nghe" mà còn "nhìn thấy" và "tính toán" được vẻ đẹp của một bản hợp âm.
+
+Bước ra ngoài \textbf{thế giới tự nhiên}, Lượng giác lại hóa thân thành nhịp thở của đại dương bao la. Lực hấp dẫn của Mặt Trăng kéo theo những dòng thủy triều dâng lên hay hạ xuống vô hình trung lại khớp hoàn hảo với quỹ đạo của một hàm Cosin. Kỳ diệu thay, ngay bên trong một hệ sinh thái vi mô như cơ thể con người, từ sự tăng giảm của thân nhiệt cho đến nồng độ hormone điều khiển giấc ngủ, tất cả đều đang đập cùng một nhịp điệu hình sin đồng điệu với vũ trụ.
+
+Đến tận cùng của sự ứng dụng, khi đôi tay con người quá bé nhỏ trước \textbf{không gian bao la}, Định lý Sin và nguyên lý Thị sai (Parallax) đã trở thành "đôi mắt" thứ hai. Không cần một chiếc thước vật lý khổng lồ, bằng tư duy góc độ tinh bén, nhân loại đã tính được độ cao của đỉnh Everest và vươn ánh nhìn chạm tới những vì sao cách xa hàng năm ánh sáng.
+
+Việc học và ứng dụng Lượng giác, xét cho cùng, còn mang lại cho chúng ta một \textbf{triết lý nhân sinh sâu sắc}: Mọi sự vật trong vũ trụ đều mang tính chu kỳ. Đồ thị $y = \sin x$ có lúc vươn lên đỉnh cao rực rỡ nhất (Max), thì cũng có lúc phải lùi về điểm thấp nhất (Min) để chuẩn bị cho một chu kỳ mới. Cuộc đời con người cũng tuân theo những nốt thăng trầm như vậy. Hiểu được sự tuần hoàn tất yếu ấy giúp chúng ta giữ được thái độ bình tâm trước những biến động của cuộc sống.
+
+\vspace{0.8cm}
+\begin{center}
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!70!orange,title=\textbf{Lời kết}]
+Nhà bác học thiên tài Galileo Galilei từng để lại một triết lý bất hủ: \textit{"Toán học là thứ ngôn ngữ mà Thượng đế đã dùng để viết nên vũ trụ"}. Hy vọng rằng, thông qua tiểu luận này, Toán học nói chung và Lượng giác nói riêng không còn là một nỗi sợ hãi trong các kỳ thi, mà đã thực sự trở thành một giai điệu tinh tế, giúp mỗi chúng ta thấu hiểu và trân trọng hơn sự kỳ diệu của vạn vật xung quanh mình.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
