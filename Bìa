@@ -1,0 +1,85 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% 1. KHAI BÁO CÁC GÓI CẦN THIẾT
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[most]{tcolorbox} 
+
+% --- GÓI CĂN LỀ TRANG GIẤY ---
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+% --- GÓI VẼ HÌNH ĐỒ THỊ VÀ HÌNH HỌC ---
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ============================================================
+% 2. BẮT ĐẦU NỘI DUNG TÀI LIỆU
+% ============================================================
+\begin{document}
+
+% ------------------------------------------------------------
+% TRANG BÌA (COVER PAGE)
+% ------------------------------------------------------------
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        {\large \textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ}} \\
+        \vspace{0.5cm}
+        \rule{8cm}{1pt} \\ % Đường gạch ngang trang trí
+        
+        \vspace{3.5cm}
+        {\Huge \textbf{DỰ ÁN LATEX}} \\
+        \vspace{1.5cm}
+        {\LARGE \textbf{CHỦ ĐỀ: ỨNG DỤNG CỦA HÀM SỐ LƯỢNG GIÁC}} \\
+        \vspace{0.5cm}
+        {\LARGE \textbf{TRONG THỰC TIỄN VÀ KHOA HỌC}} \\
+        
+        \vspace{4cm}
+        \begin{flushright}
+            {\large
+            \textbf{Sinh viên thực hiện:} Đinh Thị Kim Anh \\
+            \vspace{0.2cm}
+            \textbf{Mã sinh viên:} 22S1010123 \\
+            \vspace{0.2cm}
+            \textbf{Lớp:} 4A \\
+            \vspace{0.2cm}
+            \textbf{Giảng viên hướng dẫn:} Nguyễn Đăng Minh Phúc \\
+            }
+        \end{flushright}
+        
+        \vfill % Đẩy dòng chữ cuối cùng xuống đáy trang
+        {\large \textbf{HUẾ, Tháng 9 - 2026}}
+    \end{center}
+\end{titlepage}
+
+% ------------------------------------------------------------
+% MỤC LỤC
+% ------------------------------------------------------------
+\newpage
+\tableofcontents % Lệnh tự động tạo mục lục
+\newpage
+
+% ------------------------------------------------------------
+% LỜI MỞ ĐẦU
+% ------------------------------------------------------------
+\section*{Lời mở đầu}
+\addcontentsline{toc}{section}{Lời mở đầu} % Đưa "Lời mở đầu" vào Mục lục tự động
+
+\subsection*{1. Giới thiệu chung}
+Toán học không chỉ là những con số và ký hiệu nằm bất động trên những trang giấy trắng. Đằng sau những vỏ bọc trừu tượng ấy là ngôn ngữ mạnh mẽ nhất mà nhân loại từng có để giải mã vũ trụ. Trong số các nhánh của Toán học, Lượng giác (Trigonometry) vươn lên như một công cụ vĩ đại. Khởi nguồn từ việc đo đạc những thửa ruộng ven sông Nile thời cổ đại và quan sát bầu trời của các nhà thiên văn học Hy Lạp, lượng giác ngày nay đã thâm nhập vào mọi ngóc ngách của khoa học kỹ thuật, từ phân tích tín hiệu âm thanh, y sinh học cho đến điều hướng vệ tinh trong không gian.
+
+\subsection*{2. Lý do chọn đề tài}
+Trong môi trường học thuật và các kỳ thi, Lượng giác thường được tiếp cận dưới góc độ thuần túy đại số: biến đổi công thức, giải phương trình và tìm nghiệm. Cách tiếp cận này vô tình tạo ra một "bức tường vô hình", khiến nhiều học sinh, sinh viên mang trong mình câu hỏi đầy hoài nghi: \textit{"Học lượng giác để làm gì nếu không phải để đi thi?"}.
+
+Xuất phát từ trăn trở đó, tiểu luận \textbf{"Ứng dụng của hàm số lượng giác trong thực tiễn và khoa học"} được thực hiện nhằm đập tan định kiến về một môn Toán khô khan. Đề tài không tập trung vào việc giải những phương trình phức tạp, mà hướng tới việc trả lại cho lượng giác vẻ đẹp vốn có của nó: vẻ đẹp của sự tuần hoàn, nhịp điệu và sự cân bằng trong tự nhiên. Thông qua các mô hình thực tế như sự giao thoa của hợp âm, nhịp thở của đại dương (thủy triều) hay thước đo vạn vật trong thiên văn học, tiểu luận hy vọng mang đến một lăng kính hoàn toàn mới, giúp người đọc vừa nắm vững lý thuyết nền tảng, vừa cảm nhận được "nhịp đập" của Toán học trong đời sống thực.
+
+\vspace{1cm}
+\noindent\rule{\textwidth}{0.5pt}
+
+\end{document}
