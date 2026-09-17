@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% 1. KHAI BÁO CÁC GÓI CẦN THIẾT
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[most]{tcolorbox} 
+
+% --- GÓI VẼ HÌNH ĐỒ THỊ VÀ HÌNH HỌC ---
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ============================================================
+% 2. BẮT ĐẦU NỘI DUNG TÀI LIỆU
+% ============================================================
+\begin{document}
+
+\section{Phần 4: Ứng dụng Lượng giác trong Đo đạc và Thiên văn}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Khái niệm Lưới đạc tam giác:} Ứng dụng Định lý Sin và Định lý Cosin để tính toán khoảng cách đến những điểm không thể chạm tới (đỉnh núi, bờ sông bên kia).
+    \item \textbf{Phân tích rủi ro:} Nhận diện được "bẫy nghiệm ngoại lai" trong phương trình lượng giác khi giải các bài toán thực địa.
+    \item \textbf{Mở rộng:} Hiểu được nguyên lý Thị sai (Parallax) mà các nhà thiên văn học dùng để đo khoảng cách đến các vì sao cách chúng ta hàng năm ánh sáng.
+\end{itemize}
+\vspace{0.5cm}
+
+Làm thế nào con người biết được đỉnh Everest cao 8.848 mét khi không ai có thể thả một sợi dây đo từ đỉnh xuống tận gốc núi? Làm sao nhân loại biết được khoảng cách đến ngôi sao gần nhất là 4.24 năm ánh sáng? Câu trả lời không nằm ở những chiếc thước khổng lồ, mà nằm ở sức mạnh của hình học và các hàm số lượng giác. Bằng cách quan sát các góc, con người đã dùng Toán học để "chạm" tới những nơi xa xôi nhất.
+
+% ============================================================
+
+\subsection{Lưới đạc tam giác: Thước đo của Trái đất}
+Nguyên lý cốt lõi của ngành trắc địa là \textbf{Lưới đạc tam giác} (Triangulation). Thay vì đo trực tiếp khoảng cách, các kỹ sư sẽ lập một "đường cơ sở" (baseline) có chiều dài xác định trên mặt đất. Từ hai đầu của đường cơ sở này, họ dùng giác kế quang học để đo góc nghiêng hướng về phía đỉnh núi. 
+
+Áp dụng \textbf{Định lý Sin} trong một tam giác bất kỳ, mối liên hệ giữa các cạnh ($a, b, c$) và các góc đối diện ($A, B, C$) là một hằng số:
+$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} $$
+
+\textbf{Minh họa bài toán Trắc địa:}
+\begin{center}
+\begin{tikzpicture}
+    % Tọa độ các điểm
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (6,0);
+    \coordinate (C) at (4,4);
+    \coordinate (H) at (4,0);
+
+    % Vẽ tam giác và đường cao
+    \draw[thick, blue] (A) -- (B) node[midway, below] {$c = 500$m (Đường cơ sở)};
+    \draw[thick] (B) -- (C) node[midway, right] {$a$};
+    \draw[thick] (A) -- (C) node[midway, above left] {$b$};
+    \draw[dashed, red, thick] (C) -- (H) node[midway, right] {$h$ (Chiều cao)};
+
+    % Ký hiệu đỉnh
+    \fill (A) circle (2pt) node[below left] {$A$};
+    \fill (B) circle (2pt) node[below right] {$B$};
+    \fill (C) circle (2pt) node[above] {$C$ (Đỉnh núi)};
+    \fill (H) circle (2pt) node[below] {$H$};
+
+    % Vẽ ký hiệu góc
+    \draw (1,0) arc (0:45:1) node[midway, right, xshift=2pt, yshift=4pt] {$\alpha = 45^\circ$};
+    \draw (5,0) arc (180:116:1) node[midway, left, xshift=-2pt, yshift=6pt] {$\beta = 64^\circ$};
+    
+    % Góc vuông
+    \draw (3.7,0) -- (3.7,0.3) -- (4,0.3);
+\end{tikzpicture}
+\end{center}
+
+Từ hình trên, ta dễ dàng tính được góc $C = 180^\circ - (45^\circ + 64^\circ) = 71^\circ$. Khi đã có đầy đủ thông tin, cạnh $b$ và chiều cao $h$ sẽ bị "khóa" bởi các phép tính lượng giác:
+$$ b = \frac{c \cdot \sin B}{\sin C} = \frac{500 \cdot \sin 64^\circ}{\sin 71^\circ} \approx 475.2 \text{ (m)} $$
+$$ h = b \cdot \sin A = 475.2 \cdot \sin 45^\circ \approx 336 \text{ (m)} $$
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=\textbf{Bẫy tư duy thực tế: Trường hợp mập mờ (Ambiguous Case)}]
+Trong đánh giá tự luận lượng giác, một sai lầm kinh điển hay gặp phải là khi bài toán cung cấp 2 cạnh và 1 góc \textbf{không xen giữa} (SSA). Khi giải phương trình $\sin X = k$ (với $0 < k < 1$), học sinh thường chỉ lấy nghiệm góc nhọn. Tuy nhiên, trên đường tròn lượng giác, $\sin X = \sin(180^\circ - X)$. Điều này dẫn đến thực tế là có thể tồn tại \textbf{hai tam giác hoàn toàn khác nhau} thỏa mãn cùng một dữ kiện đo đạc. Sự thiếu sót bước đánh giá góc tù này là một "cái bẫy" mất điểm phổ biến và có thể dẫn đến hậu quả nghiêm trọng khi xác định tọa độ trong thực tế.
+\end{tcolorbox}
+
+% ============================================================
+
+\subsection{Thị sai (Parallax): Khi Lượng giác đo vạn vật}
+Nếu đường cơ sở $c = 500$m là quá ngắn để đo khoảng cách đến các vì sao, các nhà thiên văn học đã lợi dụng chính quỹ đạo của Trái Đất quanh Mặt Trời làm một đường cơ sở khổng lồ (dài khoảng $300$ triệu km).
+
+Kỹ thuật này được gọi là \textbf{Thị sai sao}. Họ chụp ảnh một ngôi sao vào tháng 1, sau đó đợi 6 tháng sau (vào tháng 7) chụp lại ngôi sao đó khi Trái Đất đã bay sang nửa bên kia của quỹ đạo. Bằng cách đo góc dịch chuyển nhỏ bé (góc thị sai $p$) của ngôi sao so với phông nền vũ trụ tĩnh, khoảng cách $d$ được tính bằng một phương trình lượng giác tối giản:
+$$ d = \frac{r}{\tan p} \approx \frac{r}{p} $$
+(Do $p$ rất nhỏ nên $\tan p \approx p$ tính bằng radian).
+
+\textbf{Minh họa Hình học Vũ trụ:}
+\begin{center}
+\begin{tikzpicture}
+    % Quỹ đạo Trái đất
+    \draw[dashed, thick, gray] (0,0) ellipse (4cm and 1cm);
+    
+    % Mặt trời và Ngôi sao
+    \fill[orange] (0,0) circle (6pt) node[below=8pt, text=black] {Mặt Trời};
+    \fill[yellow!90!orange] (0,5) circle (4pt) node[above=4pt, text=black] {Ngôi sao ($S$)};
+    
+    % Vị trí Trái đất T1 và T7
+    \fill[blue] (-4,0) circle (4pt) node[left=4pt, text=black] {Trái Đất (Tháng 1)};
+    \fill[blue] (4,0) circle (4pt) node[right=4pt, text=black] {Trái Đất (Tháng 7)};
+    
+    % Các đường ngắm
+    \draw[thick, cyan] (-4,0) -- (0,5);
+    \draw[thick, cyan] (4,0) -- (0,5);
+    \draw[dashed, thick] (0,0) -- (0,5) node[midway, right] {$d$ (Khoảng cách)};
+    \draw[thick, red] (0,0) -- (4,0) node[midway, below] {$r = 1$ AU};
+    
+    % Góc thị sai p
+    \draw (0,4.2) arc (270:308.6:0.8) node[midway, below right, xshift=-2pt, yshift=2pt] {$p$};
+\end{tikzpicture}
+\end{center}
+
+Công thức này thanh lịch đến mức nó khai sinh ra một đơn vị đo lường vĩ đại trong thiên văn học: \textbf{Parsec} (Parallax second). Nếu góc $p = 1$ giây cung ($1/3600$ độ), thì khoảng cách $d$ đúng bằng $1$ Parsec (tương đương $3.26$ năm ánh sáng).
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Tổng kết Phần 4}]
+Hình học và Lượng giác chứng minh rằng giới hạn của loài người không nằm ở chiều dài của sải tay, mà nằm ở độ sắc bén của tư duy. Khởi nguồn từ việc đo đạc những thửa ruộng ven sông Nile thời cổ đại, trải qua hàng ngàn năm, những góc Sin, Cos đã vươn mình thành thước đo đưa con người chạm tới những dải ngân hà xa xôi nhất trong vũ trụ.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
