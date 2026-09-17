@@ -33,25 +33,22 @@
         \vspace{0.5cm}
         \rule{8cm}{1pt} \\ % Đường gạch ngang trang trí
         
-        \vspace{3.5cm}
+        \vspace{3cm}
         {\Huge \textbf{DỰ ÁN LATEX}} \\
         \vspace{1.5cm}
         {\LARGE \textbf{CHỦ ĐỀ: ỨNG DỤNG CỦA HÀM SỐ LƯỢNG GIÁC}} \\
         \vspace{0.5cm}
         {\LARGE \textbf{TRONG THỰC TIỄN VÀ KHOA HỌC}} \\
         
-        \vspace{4cm}
-        \begin{flushright}
-            {\large
-            \textbf{Sinh viên thực hiện:} Đinh Thị Kim Anh \\
-            \vspace{0.2cm}
-            \textbf{Mã sinh viên:} 22S1010123 \\
-            \vspace{0.2cm}
-            \textbf{Lớp:} 4A \\
-            \vspace{0.2cm}
-            \textbf{Giảng viên hướng dẫn:} Nguyễn Đăng Minh Phúc \\
-            }
-        \end{flushright}
+        \vspace{3.5cm}
+        
+        % Dùng cấu trúc bảng (tabular) để khối thông tin nằm giữa và các dòng thẳng tắp
+        \begin{tabular}{l l}
+            {\large \textbf{Sinh viên thực hiện:}} & {\large Đinh Thị Kim Anh} \\[0.3cm]
+            {\large \textbf{Mã sinh viên:}} & {\large 22S1010123} \\[0.3cm]
+            {\large \textbf{Lớp:}} & {\large 4A} \\[0.3cm]
+            {\large \textbf{Giảng viên hướng dẫn:}} & {\large Nguyễn Đăng Minh Phúc} \\
+        \end{tabular}
         
         \vfill % Đẩy dòng chữ cuối cùng xuống đáy trang
         {\large \textbf{HUẾ, Tháng 9 - 2026}}
