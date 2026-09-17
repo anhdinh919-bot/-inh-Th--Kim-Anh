@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 
 % ============================================================
-% KHAI BÁO CÁC GÓI CẦN THIẾT
+% 1. KHAI BÁO CÁC GÓI CẦN THIẾT
 % ============================================================
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese]{babel}
@@ -19,7 +19,7 @@
 \pgfplotsset{compat=1.18}
 
 % ============================================================
-% BẮT ĐẦU NỘI DUNG TÀI LIỆU
+% 2. BẮT ĐẦU NỘI DUNG TÀI LIỆU
 % ============================================================
 \begin{document}
 
@@ -29,48 +29,45 @@
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
-        {\large \textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}} \\
-        {\large \textbf{TRƯỜNG ĐẠI HỌC [ĐIỀN TÊN TRƯỜNG CỦA BẠN]}} \\
+        {\large \textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ}} \\
         \vspace{0.5cm}
-        \rule{8cm}{1pt} \\ 
+        \rule{8cm}{1pt} \\ % Đường gạch ngang trang trí
         
         \vspace{3.5cm}
-        {\Huge \textbf{TIỂU LUẬN MÔN TOÁN}} \\
+        {\Huge \textbf{DỰ ÁN LATEX}} \\
         \vspace{1.5cm}
         {\LARGE \textbf{CHỦ ĐỀ: ỨNG DỤNG CỦA HÀM SỐ LƯỢNG GIÁC}} \\
         \vspace{0.5cm}
         {\LARGE \textbf{TRONG THỰC TIỄN VÀ KHOA HỌC}} \\
         
-        \vspace{4cm}
-        \begin{flushright}
+        \vspace{3.5cm}
+        % Dùng minipage để gộp cụm thông tin lại và căn giữa trang hoàn hảo
+        \begin{minipage}{0.7\textwidth}
             {\large
-            \textbf{Sinh viên thực hiện:} Đinh Thị Kim Anh \\
-            \vspace{0.2cm}
-            \textbf{Mã sinh viên:} 22S1010123 \\
-            \vspace{0.2cm}
-            \textbf{Lớp:} [Điền tên lớp] \\
-            \vspace{0.2cm}
-            \textbf{Giảng viên hướng dẫn:} [Điền tên GV] \\
+            \textbf{Sinh viên thực hiện:} Đinh Thị Kim Anh \\[0.2cm]
+            \textbf{Mã sinh viên:} 22S1010123 \\[0.2cm]
+            \textbf{Lớp:} 4A \\[0.2cm]
+            \textbf{Giảng viên hướng dẫn:} Nguyễn Đăng Minh Phúc \\
             }
-        \end{flushright}
+        \end{minipage}
         
-        \vfill 
-        {\large \textbf{[Điền Tỉnh/Thành phố], Tháng 9 - 2026}}
+        \vfill % Đẩy dòng chữ cuối cùng xuống đáy trang
+        {\large \textbf{HUẾ, Tháng 9 - 2026}}
     \end{center}
 \end{titlepage}
 
 % ------------------------------------------------------------
-% MỤC LỤC TỰ ĐỘNG
+% MỤC LỤC
 % ------------------------------------------------------------
 \newpage
-\tableofcontents 
+\tableofcontents % Lệnh tự động tạo mục lục
 \newpage
 
 % ------------------------------------------------------------
 % LỜI MỞ ĐẦU
 % ------------------------------------------------------------
 \section*{Lời mở đầu}
-\addcontentsline{toc}{section}{Lời mở đầu} 
+\addcontentsline{toc}{section}{Lời mở đầu} % Đưa "Lời mở đầu" vào Mục lục tự động
 
 \subsection*{1. Giới thiệu chung}
 Toán học không chỉ là những con số và ký hiệu nằm bất động trên những trang giấy trắng. Đằng sau những vỏ bọc trừu tượng ấy là ngôn ngữ mạnh mẽ nhất mà nhân loại từng có để giải mã vũ trụ. Trong số các nhánh của Toán học, Lượng giác (Trigonometry) vươn lên như một công cụ vĩ đại. Khởi nguồn từ việc đo đạc những thửa ruộng ven sông Nile thời cổ đại và quan sát bầu trời của các nhà thiên văn học Hy Lạp, lượng giác ngày nay đã thâm nhập vào mọi ngóc ngách của khoa học kỹ thuật, từ phân tích tín hiệu âm thanh, y sinh học cho đến điều hướng vệ tinh trong không gian.
@@ -78,12 +75,15 @@ Toán học không chỉ là những con số và ký hiệu nằm bất động
 \subsection*{2. Lý do chọn đề tài}
 Trong môi trường học thuật và các kỳ thi, Lượng giác thường được tiếp cận dưới góc độ thuần túy đại số: biến đổi công thức, giải phương trình và tìm nghiệm. Cách tiếp cận này vô tình tạo ra một "bức tường vô hình", khiến nhiều học sinh, sinh viên mang trong mình câu hỏi đầy hoài nghi: \textit{"Học lượng giác để làm gì nếu không phải để đi thi?"}.
 
-Xuất phát từ trăn trở đó, tiểu luận \textbf{"Ứng dụng của hàm số lượng giác trong thực tiễn và khoa học"} được thực hiện nhằm đập tan định kiến về một môn Toán khô khan. Đề tài không tập trung vào việc giải những phương trình phức tạp, mà hướng tới việc trả lại cho lượng giác vẻ đẹp vốn có của nó: vẻ đẹp của sự tuần hoàn, nhịp điệu và sự cân bằng trong tự nhiên. Thông qua các mô hình thực tế như sự giao thoa của hợp âm, nhịp thở của đại dương hay thước đo vạn vật trong thiên văn học, tiểu luận hy vọng mang đến một lăng kính hoàn toàn mới, giúp người đọc vừa nắm vững lý thuyết nền tảng, vừa cảm nhận được "nhịp đập" của Toán học trong đời sống thực.
+Xuất phát từ trăn trở đó, tiểu luận \textbf{"Ứng dụng của hàm số lượng giác trong thực tiễn và khoa học"} được thực hiện nhằm đập tan định kiến về một môn Toán khô khan. Đề tài không tập trung vào việc giải những phương trình phức tạp, mà hướng tới việc trả lại cho lượng giác vẻ đẹp vốn có của nó: vẻ đẹp của sự tuần hoàn, nhịp điệu và sự cân bằng trong tự nhiên. Thông qua các mô hình thực tế như sự giao thoa của hợp âm, nhịp thở của đại dương (thủy triều) hay thước đo vạn vật trong thiên văn học, tiểu luận hy vọng mang đến một lăng kính hoàn toàn mới, giúp người đọc vừa nắm vững lý thuyết nền tảng, vừa cảm nhận được "nhịp đập" của Toán học trong đời sống thực.
 
-\newpage
-% ------------------------------------------------------------
+\vspace{1cm}
+\noindent\rule{\textwidth}{0.5pt}
+
+% ============================================================
 % PHẦN 1
-% ------------------------------------------------------------
+% ============================================================
+\newpage
 \section{Phần 1: Các khái niệm cơ bản về Hàm số Lượng giác}
 
 \subsection{Mục tiêu phần học}
@@ -118,7 +118,7 @@ Các hàm số sau đây là hàm lượng giác:
 Tính chất hình học nổi bật nhất của hàm lượng giác là sự lặp lại (tuần hoàn):
 \begin{itemize}
     \item \textbf{Hàm $y = \sin x$ và $y = \cos x$:} Tập xác định $D = \mathbb{R}$. Đây là các hàm tuần hoàn với chu kỳ cơ sở $T = 2\pi$. Nghĩa là cứ sau một khoảng $2\pi$, đồ thị lại lặp lại hình dáng ban đầu: $\sin(x + 2\pi) = \sin x$.
-    \item \textbf{Hàm $y = \tan x$:} Tập xác định $D = \mathbb{R} \setminus \left\lbrace \frac{\pi}{2} + k\pi \mid k \in \mathbb{Z} \right\rbrace$, chu kỳ lặp lại ngắn hơn, $T = \pi$.
+    \item \textbf{Hàm $y = \tan x$:} Tập xác định $D = \mathbb{R} \setminus \{ \frac{\pi}{2} + k\pi \mid k \in \mathbb{Z} \}$, chu kỳ lặp lại ngắn hơn, $T = \pi$.
 \end{itemize}
 
 \subsection{Cực trị và Sự biến thiên}
@@ -140,10 +140,10 @@ Không giống như hàm đa thức có thể tiến tới $+\infty$ hoặc $-\i
 \end{tcolorbox}
 \end{center}
 
-\newpage
-% ------------------------------------------------------------
+% ============================================================
 % PHẦN 2
-% ------------------------------------------------------------
+% ============================================================
+\newpage
 \section{Phần 2: Ứng dụng của lượng giác trong Âm thanh và Âm nhạc}
 
 \subsection{Mục tiêu phần học}
@@ -237,11 +237,11 @@ Nhà bác học, triết học lỗi lạc Gottfried Leibniz từng nói: \texti
 \end{tcolorbox}
 \end{center}
 
-\newpage
-% ------------------------------------------------------------
+% ============================================================
 % PHẦN 3
-% ------------------------------------------------------------
-\section{Phần 3: Nhịp sinh học và Thủy triều - Lời thì thầm của Vũ trụ}
+% ============================================================
+\newpage
+\section{Phần 3: Nhịp sinh học và Thủy triều}
 
 \subsection{Mục tiêu phần học}
 Sau khi hoàn thành phần này, người học có thể:
@@ -254,7 +254,7 @@ Sau khi hoàn thành phần này, người học có thể:
 
 Vũ trụ không vận hành một cách hỗn loạn, mà giống như một cỗ máy khổng lồ tích hợp vô số bánh răng nhịp nhàng. Từ chuyển động của các thiên hà, sự luân phiên bốn mùa, cho đến nhịp đập nơi lồng ngực bạn — tất cả đều mang tính tuần hoàn. Sự kỳ diệu nằm ở chỗ: từ một vệ tinh cách ta hàng trăm ngàn kilomet (Mặt Trăng) cho đến từng phân tử hóa học trong não bộ, tất cả đều đang "khiêu vũ" theo cùng một điệu nhạc mang tên: Hàm số Lượng giác.
 
-\subsection{Hơi thở của Đại dương: Toán học đằng sau Thủy triều}
+\subsection{Toán học đằng sau Thủy triều}
 Hàng ngàn năm qua, các thủy thủ đã biết nhìn lên Mặt Trăng để đoán con nước. Hiện tượng thủy triều chính là kết quả của lực hấp dẫn giữa Trái Đất, Mặt Trăng và Mặt Trời. Tùy vào vị trí tương đối của 3 thiên thể này, \textbf{biên độ dao động ($A$)} của hàm số lượng giác sẽ thay đổi:
 \begin{itemize}
     \item \textbf{Triều cường (Spring Tides):} Xảy ra vào ngày trăng tròn hoặc trăng non. Lúc này Mặt Trăng và Mặt Trời thẳng hàng, lực hấp dẫn cộng gộp khiến biên độ sóng đạt mức cực đại.
@@ -341,10 +341,10 @@ Toán học thường bị gán mác là khô khan và rập khuôn. Tuy nhiên,
 \end{tcolorbox}
 \end{center}
 
-\newpage
-% ------------------------------------------------------------
+% ============================================================
 % PHẦN 4
-% ------------------------------------------------------------
+% ============================================================
+\newpage
 \section{Phần 4: Ứng dụng Lượng giác trong Đo đạc và Thiên văn}
 
 \subsection{Mục tiêu phần học}
@@ -443,10 +443,10 @@ Hình học và Lượng giác chứng minh rằng giới hạn của loài ngư
 \end{tcolorbox}
 \end{center}
 
-\newpage
-% ------------------------------------------------------------
+% ============================================================
 % KẾT LUẬN
-% ------------------------------------------------------------
+% ============================================================
+\newpage
 \section*{Kết luận chung}
 \addcontentsline{toc}{section}{Kết luận chung} 
 
