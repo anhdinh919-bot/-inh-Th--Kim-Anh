@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- KHAI BÁO CÁC GÓI CẦN THIẾT ---
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage[most]{tcolorbox} 
+
+\begin{document}
+
+% ------------------------------------------------------------
+% KẾT LUẬN
+% ------------------------------------------------------------
+\newpage
+\section*{Kết luận chung}
+\addcontentsline{toc}{section}{Kết luận chung} 
+
+Khép lại chuyến hành trình khám phá qua bốn phần của tiểu luận, chúng ta có thể tự tin khẳng định rằng: Hàm số lượng giác vĩ đại, lãng mạn và gần gũi hơn rất nhiều so với hình ảnh của những phương trình khô khan, rập khuôn trên những trang sách giáo khoa. Khởi nguồn từ một đường tròn đơn vị bé nhỏ với các trục tọa độ tĩnh lặng, các hàm số Sin, Cos đã thực sự "sống dậy" và vươn mình trở thành một thứ ngôn ngữ toán học cốt lõi để mô phỏng mọi sự tuần hoàn của tự nhiên.
+
+Nhìn lại bức tranh toàn cảnh, Lượng giác đã cấp cho chúng ta một lăng kính vạn hoa để giải mã thế giới. Chúng ta thấy Lượng giác ẩn mình trong \textbf{thế giới nghệ thuật}, nơi một nốt nhạc vang lên không chỉ là âm thanh đơn thuần, mà là sự giao thoa tuyệt mỹ của các đồ thị sóng. Nhờ có phương trình dao động, chúng ta không chỉ "nghe" mà còn "nhìn thấy" và "tính toán" được vẻ đẹp của một bản hợp âm.
+
+Bước ra ngoài \textbf{thế giới tự nhiên}, Lượng giác lại hóa thân thành nhịp thở của đại dương bao la. Lực hấp dẫn của Mặt Trăng kéo theo những dòng thủy triều dâng lên hay hạ xuống vô hình trung lại khớp hoàn hảo với quỹ đạo của một hàm Cosin. Kỳ diệu thay, ngay bên trong một hệ sinh thái vi mô như cơ thể con người, từ sự tăng giảm của thân nhiệt cho đến nồng độ hormone điều khiển giấc ngủ, tất cả đều đang đập cùng một nhịp điệu hình sin đồng điệu với vũ trụ.
+
+Đến tận cùng của sự ứng dụng, khi đôi tay con người quá bé nhỏ trước \textbf{không gian bao la}, Định lý Sin và nguyên lý Thị sai (Parallax) đã trở thành "đôi mắt" thứ hai. Không cần một chiếc thước vật lý khổng lồ, bằng tư duy góc độ tinh bén, nhân loại đã tính được độ cao của đỉnh Everest và vươn ánh nhìn chạm tới những vì sao cách xa hàng năm ánh sáng.
+
+Việc học và ứng dụng Lượng giác, xét cho cùng, còn mang lại cho chúng ta một \textbf{triết lý nhân sinh sâu sắc}: Mọi sự vật trong vũ trụ đều mang tính chu kỳ. Đồ thị $y = \sin x$ có lúc vươn lên đỉnh cao rực rỡ nhất (Max), thì cũng có lúc phải lùi về điểm thấp nhất (Min) để chuẩn bị cho một chu kỳ mới. Cuộc đời con người cũng tuân theo những nốt thăng trầm như vậy. Hiểu được sự tuần hoàn tất yếu ấy giúp chúng ta giữ được thái độ bình tâm trước những biến động của cuộc sống.
+
+\vspace{0.8cm}
+\begin{center}
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!70!orange,title=\textbf{Lời kết}]
+Nhà bác học thiên tài Galileo Galilei từng để lại một triết lý bất hủ: \textit{"Toán học là thứ ngôn ngữ mà Thượng đế đã dùng để viết nên vũ trụ"}. Hy vọng rằng, thông qua tiểu luận này, Toán học nói chung và Lượng giác nói riêng không còn là một nỗi sợ hãi trong các kỳ thi, mà đã thực sự trở thành một giai điệu tinh tế, giúp mỗi chúng ta thấu hiểu và trân trọng hơn sự kỳ diệu của vạn vật xung quanh mình.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
