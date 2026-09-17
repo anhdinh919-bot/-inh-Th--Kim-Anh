@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% KHAI BÁO CÁC GÓI CẦN THIẾT
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[most]{tcolorbox} 
+
+% --- GÓI VẼ HÌNH ĐỒ THỊ ---
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+% ============================================================
+% BẮT ĐẦU PHẦN 2
+% ============================================================
+\newpage
+\section{Phần 2: Ứng dụng của lượng giác trong Âm thanh và Âm nhạc}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Hiểu bản chất sóng âm:} Chuyển đổi hiện tượng vật lý (âm thanh) thành mô hình toán học thông qua đồ thị hình sin.
+    \item \textbf{Phân tích tham số:} Giải thích được ý nghĩa thực tế của biên độ ($A$) và tần số góc ($\omega$) đối với âm lượng và cao độ của nốt nhạc.
+    \item \textbf{Khám phá sự giao thoa:} Sử dụng phép biến đổi lượng giác (tổng thành tích) để giải thích cơ chế tạo ra hợp âm êm tai (consonance) trong âm nhạc.
+\end{itemize}
+\vspace{0.5cm}
+
+Âm nhạc, ở góc độ cốt lõi nhất, chính là toán học được cảm nhận qua đôi tai. Hơn hai ngàn năm trước, nhà toán học Pythagoras đã phát hiện ra rằng những âm thanh êm ái nhất đều tuân theo các tỷ lệ toán học nguyên giản. Khi bạn gảy một dây đàn guitar hay lướt trên phím piano, không khí xung quanh sẽ dao động. Những dao động này truyền đến màng nhĩ dưới dạng các đợt nén và dãn liên tục, vẽ lên không gian những đường cong lượng giác hoàn mỹ.
+
+% ============================================================
+
+\subsection{Sóng âm và Phương trình dao động}
+Một âm thanh đơn thuần nhất (âm thuần, ví dụ như tiếng phát ra từ âm thoa) tạo ra một sóng âm có thể được biểu diễn bằng phương trình lượng giác theo thời gian $t$:
+\[ y(t) = A \sin(\omega t + \varphi) \]
+Trong đó, mỗi đại lượng toán học đều cất lên một tiếng nói vật lý riêng biệt:
+\begin{itemize}
+    \item \textbf{$A$ (Biên độ):} Biên độ càng lớn, đồ thị càng dao động mạnh theo trục tung. Trong thực tế, điều này tương ứng với \textbf{độ to (âm lượng)} của âm thanh.
+    \item \textbf{$\omega$ (Tần số góc):} Đại lượng này liên hệ với tần số $f$ (số dao động trong một giây, đơn vị Hertz - Hz) qua công thức $\omega = 2\pi f$. Tần số càng lớn, đồ thị càng bị "nén" lại theo trục hoành, âm phát ra sẽ có \textbf{cao độ càng cao (âm bổng)}. Ngược lại, tần số nhỏ tạo ra âm trầm.
+\end{itemize}
+
+\textbf{Ví dụ thực tế:} Một nốt La chuẩn (A4) - tiêu chuẩn quốc tế dùng để lên dây cho mọi nhạc cụ - có tần số chính xác là $f = 440 \text{ Hz}$. Phương trình dao động của nốt nhạc này là $y(t) = A \sin(880\pi t)$. Dưới đây là hình ảnh mô phỏng một sóng âm thuần túy:
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=12cm, height=4.5cm,
+        axis lines=middle,
+        xlabel={Thời gian $t$},
+        ylabel={Biên độ $y(t)$},
+        ymin=-1.5, ymax=1.5,
+        xmin=0, xmax=13,
+        xtick=\empty, ytick={-1, 1},
+        grid=both,
+        grid style={line width=.1pt, draw=gray!30},
+        thick,
+        title={\textbf{Đồ thị mô phỏng một nốt nhạc đơn (Âm thuần)}}
+    ]
+    \addplot[domain=0:4*pi, samples=150, color=cyan!70!blue, very thick] {sin(deg(x))};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+% ============================================================
+
+\subsection{Toán học của Hợp âm: Bản giao hưởng của sự Giao thoa}
+Tại sao khi ta đánh cùng lúc nhiều nốt nhạc, có những tổ hợp nghe rất êm tai (hợp âm thuận), nhưng có tổ hợp lại nghe chói gắt (hợp âm nghịch)? Bí mật nằm ở \textbf{phép cộng lượng giác}.
+
+Theo nguyên lý chồng chất sóng, khi hai nốt nhạc vang lên cùng lúc, phương trình sóng tổng hợp chính là tổng của hai hàm sin. Áp dụng công thức biến đổi tổng thành tích:
+\[ \sin \alpha + \sin \beta = 2 \sin\left(\frac{\alpha + \beta}{2}\right) \cos\left(\frac{\alpha - \beta}{2}\right) \]
+
+Tính chất của hàm số tổng hợp này phụ thuộc hoàn toàn vào tỷ lệ giữa hai tần số $f_1$ và $f_2$:
+\begin{itemize}
+    \item \textbf{Hợp âm thuận (Consonance):} Xảy ra khi tỷ số $\frac{f_1}{f_2}$ là những phân số đơn giản. Ví dụ điển hình nhất là Quãng 5 đúng (Perfect Fifth) với tỷ lệ tần số $3:2$. Khi đó, sóng tổng hợp tạo ra một chu kỳ lặp lại đều đặn, nhịp nhàng, mang lại cảm giác hùng tráng và êm dịu.
+    \item \textbf{Hợp âm nghịch (Dissonance):} Xảy ra khi tỷ lệ tần số phức tạp (như $45:32$). Đồ thị hàm tổng hợp lúc này trở nên hỗn loạn, biên độ dao động bất quy tắc tạo ra cảm giác căng thẳng.
+\end{itemize}
+
+\textbf{Minh họa sự giao thoa tạo nên Hợp âm thuận (Tỷ lệ 3:2):}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=6cm,
+        axis lines=middle,
+        xlabel={Thời gian $t$},
+        ylabel={Biên độ},
+        ymin=-2.5, ymax=2.5,
+        xmin=0, xmax=13,
+        xtick=\empty, ytick=\empty,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!20},
+        thick,
+        title={\textbf{Sự hòa quyện của hai nốt nhạc (Quãng 5 đúng)}},
+        legend style={at={(0.5,-0.15)}, anchor=north, legend columns=-1, draw=none}
+    ]
+    % Nốt thứ nhất (tần số 2x)
+    \addplot[domain=0:4*pi, samples=200, color=red!60!white, dashed, thick] {sin(deg(2*x))};
+    % Nốt thứ hai (tần số 3x)
+    \addplot[domain=0:4*pi, samples=200, color=green!60!black, dashed, thick] {sin(deg(3*x))};
+    % Sóng tổng hợp
+    \addplot[domain=0:4*pi, samples=200, color=blue, very thick] {sin(deg(2*x)) + sin(deg(3*x))};
+    
+    \legend{Nốt gốc, Nốt quãng 5, Sóng tổng hợp (Hợp âm)}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Góc nhìn sâu sắc}]
+Nhà bác học, triết học lỗi lạc Gottfried Leibniz từng nói: \textit{"Âm nhạc là một bài toán số học ẩn giấu của tâm hồn, nơi nó tính toán mà không hề hay biết"}. Việc học lượng giác giúp chúng ta không chỉ "nghe" mà còn "nhìn thấy" và "tính toán" được vẻ đẹp của âm nhạc thông qua sự giao thoa của các đồ thị hàm số.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
