@@ -1,0 +1,120 @@
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% 1. KHAI BÁO CÁC GÓI CẦN THIẾT
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[most]{tcolorbox} 
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\section{Phần 3: Nhịp sinh học và Thủy triều - Lời thì thầm của Vũ trụ}
+
+\subsection{Mục tiêu phần học}
+Sau khi hoàn thành phần này, người học có thể:
+\begin{itemize}
+    \item \textbf{Mở rộng nhãn quan vĩ mô:} Sử dụng hàm cosin để tính toán thủy triều, phân tích tác động từ các pha của Mặt Trăng đến biên độ sóng.
+    \item \textbf{Mô hình hóa vi mô:} Lập phương trình lượng giác biểu diễn sự giao thoa của các hormone trong "đồng hồ sinh học" và nhịp thở của con người.
+    \item \textbf{Kết nối Toán học \& Thực tiễn:} Ứng dụng trực tiếp giải các bài toán hàng hải, y học và tối ưu hóa hiệu suất cơ thể.
+\end{itemize}
+\vspace{0.5cm}
+
+Vũ trụ không vận hành một cách hỗn loạn, mà giống như một cỗ máy khổng lồ tích hợp vô số bánh răng nhịp nhàng. Từ chuyển động của các thiên hà, sự luân phiên bốn mùa, cho đến nhịp đập nơi lồng ngực bạn — tất cả đều mang tính tuần hoàn. Sự kỳ diệu nằm ở chỗ: từ một vệ tinh cách ta hàng trăm ngàn kilomet (Mặt Trăng) cho đến từng phân tử hóa học trong não bộ, tất cả đều đang "khiêu vũ" theo cùng một điệu nhạc mang tên: Hàm số Lượng giác.
+
+% ============================================================
+
+\subsection{Toán học đằng sau Thủy triều}
+Hàng ngàn năm qua, các thủy thủ đã biết nhìn lên Mặt Trăng để đoán con nước. Hiện tượng thủy triều chính là kết quả của lực hấp dẫn giữa Trái Đất, Mặt Trăng và Mặt Trời. Tùy vào vị trí tương đối của 3 thiên thể này, \textbf{biên độ dao động ($A$)} của hàm số lượng giác sẽ thay đổi:
+\begin{itemize}
+    \item \textbf{Triều cường (Spring Tides):} Xảy ra vào ngày trăng tròn hoặc trăng non. Lúc này Mặt Trăng và Mặt Trời thẳng hàng, lực hấp dẫn cộng gộp khiến biên độ sóng đạt mức cực đại.
+    \item \textbf{Triều kém (Neap Tides):} Xảy ra vào ngày trăng khuyết. Trái Đất, Mặt Trăng, Mặt Trời tạo thành góc vuông. Lực kéo triệt tiêu lẫn nhau khiến biên độ dao động đạt mức cực tiểu.
+\end{itemize}
+
+\begin{tcolorbox}[colback=cyan!5!white,colframe=cyan!80!black,title=\textbf{Ví dụ: Kỷ lục tại Vịnh Fundy}]
+Nơi thể hiện sức mạnh lượng giác khủng khiếp nhất trên Trái Đất là Vịnh Fundy (Canada). Nhờ cấu trúc địa hình dạng phễu cộng hưởng với nhịp điệu của Mặt Trăng, mực nước ở đây dao động với \textbf{biên độ lên tới 16 mét} (tương đương tòa nhà 5 tầng). Lượng nước chảy vào và rút ra khỏi vịnh trong một chu kỳ 12 giờ bằng tổng lưu lượng của tất cả các con sông trên thế giới cộng lại!
+\end{tcolorbox}
+
+\textbf{Bài toán Vận tải biển:} 
+Xét mô hình bán nhật triều tại một cảng biển nước sâu. Mực nước trung bình là $2$ mét, biên độ dao động là $1.5$ mét. Chu kỳ $12$ giờ tương ứng tần số góc $\omega = \frac{\pi}{6}$. Chọn $t = 0$ là lúc triều cường, phương trình mực nước $h(t)$ (mét) theo thời gian $t$ (giờ) là:
+\[ h(t) = 1.5 \cos\left(\frac{\pi}{6}t\right) + 2 \]
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=6.5cm,
+        axis lines=middle,
+        xlabel={\textbf{Thời gian $t$ (giờ)}},
+        ylabel={\textbf{Mực nước $h(t)$ (m)}},
+        ymin=0, ymax=4.5, xmin=0, xmax=25,
+        xtick={0, 3, 6, 9, 12, 15, 18, 21, 24},
+        ytick={0, 1, 2, 3, 4},
+        grid=both, grid style={line width=.1pt, draw=gray!30},
+        thick,
+        title={\textbf{Đồ thị mực nước Thủy triều (Được tô màu mô phỏng đại dương)}},
+        legend style={at={(0.95,0.95)}, anchor=north east}
+    ]
+    % Vẽ và tô màu nước biển (dùng fill)
+    \addplot[domain=0:24, samples=200, color=cyan!70!blue, very thick, fill=cyan!10] {1.5 * cos(30*x) + 2} \closedcycle;
+    \addlegendentry{Mực nước $h(t)$}
+    
+    % Đường giới hạn an toàn cho tàu
+    \addplot[domain=0:24, dashed, color=red, thick] {3.2};
+    \addlegendentry{Mức an toàn tối thiểu (3.2m)}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+Nếu một con tàu siêu trọng yêu cầu mực nước tối thiểu $\mathbf{3.2}$ \textbf{mét} để không bị mắc cạn, phần mềm dẫn đường sẽ giải bất phương trình $\cos\left(\frac{\pi}{6}t\right) \geq 0.8$. Kết quả toán học sẽ chỉ ra khung giờ vàng từ \textbf{10h45 đến 13h15} là thời điểm duy nhất tàu được phép tiến vào cảng.
+
+% ============================================================
+
+\subsection{Hệ sinh thái Vi mô: Đồng hồ Sinh học \& Nhịp thở}
+Quay trở lại với cơ thể con người. Mọi sinh hoạt của chúng ta bị chi phối bởi "Nhịp sinh học" - một hệ thống phương trình dao động điều hòa được lập trình sẵn trong mã ADN. Sự buồn ngủ hay tỉnh táo thực chất là sự giao thoa của hai hàm số lượng giác ngược pha (lệch nhau $\pi$ radian):
+\begin{align*}
+    \text{Cortisol (Đánh thức): } \quad C(t) &= 5 + 5\cos\left(\frac{\pi}{12}(t - 8)\right) \quad (\text{Max lúc 8h sáng}) \\
+    \text{Melatonin (Gây ngủ): } \quad M(t) &= 5 + 5\cos\left(\frac{\pi}{12}(t - 24)\right) \quad (\text{Max lúc 24h đêm})
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=14cm, height=5.5cm,
+        axis lines=left,
+        xlabel={\textbf{Thời gian trong ngày (Giờ)}},
+        ylabel={\textbf{Nồng độ Hormone}},
+        ymin=0, ymax=12, xmin=0, xmax=24,
+        xtick={0, 4, 8, 12, 16, 20, 24},
+        grid=major, grid style={dashed, gray!50},
+        thick,
+        title={\textbf{Sự giao thoa của 2 hàm Lượng giác quy định Giấc ngủ}}
+    ]
+    % Đồ thị Cortisol (Đỏ) - lệch 8 tiếng
+    \addplot[domain=0:24, samples=150, color=red, very thick] {5 + 5 * cos(15*(x-8))};
+    % Đồ thị Melatonin (Xanh) - lệch 24 tiếng (cũng là 0 tiếng)
+    \addplot[domain=0:24, samples=150, color=blue, very thick, dashed] {5 + 5 * cos(15*x)};
+    
+    \node[red] at (axis cs: 10.5, 9.5) {Cortisol};
+    \node[blue] at (axis cs: 3.5, 9.5) {Melatonin};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!60!black,title=\textbf{Ứng dụng Y khoa: Đạo hàm Nhịp thở}]
+Một ví dụ vi mô tuyệt đẹp khác là \textbf{Chu kỳ Hô hấp}. Thể tích không khí trong phổi của một người trưởng thành khi nghỉ ngơi dao động theo chu kỳ khoảng 5 giây. Khí đi vào và đi ra tạo thành phương trình:
+\[ V(t) = 0.25 \sin\left(\frac{2\pi}{5} t - \frac{\pi}{2}\right) + 2.75 \quad (\text{lít}) \]
+Bằng cách lấy \textbf{đạo hàm bậc nhất $V'(t)$}, các bác sĩ có thể tính toán chính xác \textit{lưu lượng không khí luân chuyển lớn nhất} trong một giây, từ đó phát hiện sớm các bệnh lý về hen suyễn hoặc hẹp đường thở, cứu sống hàng triệu bệnh nhân mỗi năm.
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{Triết lý của Lượng giác}]
+Toán học thường bị gán mác là khô khan và rập khuôn. Tuy nhiên, khi nhìn vào đồ thị sóng được đổ màu của đại dương hay phương trình nhịp thở của buồng phổi, ta thấy toán học thực chất đang đo lường "nhịp thở" của sự sống. Bằng cách thấu hiểu đồ thị $y = \sin x$, ta đã nắm trong tay chiếc chìa khóa vạn năng để giải mã quy luật của vũ trụ và thấu hiểu chính cơ thể mình.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
